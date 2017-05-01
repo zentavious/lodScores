@@ -19,6 +19,7 @@ public class RandomPedigree {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		p.println(p1 + "," + p2);
 		for(int i = 0;i < numOff;i++){
 			String a = p1.charAt((int)(Math.random()*2)) + "" + p2.charAt((int)(Math.random()*2));
 			String b = p1.charAt((int)(Math.random()*2)+2) + "" + p2.charAt((int)(Math.random()*2)+2);
