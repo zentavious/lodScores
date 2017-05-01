@@ -1,3 +1,5 @@
+package lodScores;
+
 import java.io.*;
 import java.util.*;
 
