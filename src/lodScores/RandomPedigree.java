@@ -1,9 +1,11 @@
 package lodScores;
 
+import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.PrintWriter;
 import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class RandomPedigree {
 	
@@ -19,7 +21,8 @@ public class RandomPedigree {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		p.println(p1 + "," + p2);
+		p.println(p1);
+		p.println(p2);
 		for(int i = 0;i < numOff;i++){
 			String a = p1.charAt((int)(Math.random()*2)) + "" + p2.charAt((int)(Math.random()*2));
 			String b = p1.charAt((int)(Math.random()*2)+2) + "" + p2.charAt((int)(Math.random()*2)+2);
@@ -33,5 +36,27 @@ public class RandomPedigree {
 		}
 		p.close();
 		
+	}
+	
+	public static int[] readPedigree(String file) throws FileNotFoundException{
+		Scanner scan = new Scanner(new File(file));
+		String p1 = pheno(scan.nextLine());
+		String p2 = pheno(scan.nextLine());
+		int recom = 0;
+		int children = 0;
+		
+		while(scan.hasNextLine()){
+			children++;
+			String child = pheno(scan.nextLine());
+			if(!p1.equals(child) && !p2.equals(child)){
+				recom++;
+			}
+		}
+		int[] ret = {recom,children};
+		return ret;
+	}
+	
+	private static String pheno(String geno){
+		return geno.charAt(0) + "" + geno.charAt(2);
 	}
 }

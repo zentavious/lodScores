@@ -23,13 +23,5 @@ public class LODScore{
     return result;
   }
   
-  public static void main(String args[]){
-    Scanner sc = new Scanner(System.in);
-    double[] array = {0, 0.1, 0.03, 0.05, 0.36, 0.5, 0.2, 0.01, 0.8};
-    LODScore i = new LODScore(100,36);
-    for (double r : array){
-      System.out.println("Lod score of " + r + " is: " + i.calculateLodScore(r));
-      System.out.println();
-    }
-  }
+  
 }
